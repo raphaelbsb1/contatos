@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">	
+	<title>Contatos</title>
+</head>
+<body>
+	<div class="container" ng-controller="AppCtrl">
+		<h1>Contatos</h1>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Nome</th>
+					<th>Email</th>
+					<th>Telefone</th>
+					<th>Ação</th>
+					<th>&nbsp;</th>
+					<th>&nbsp;</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th><input class="form-control" ng-model="contato.nome" /></th>
+					<th><input class="form-control" ng-model="contato.email" /></th>
+					<th><input class="form-control" ng-model="contato.telefone"></th>
+					<th><button class="btn btn-primary" ng-click="addContato()">Add Contato</button></th>
+					<th><button class="btn btn-info" ng-click="editarContato()"> Editar Contato</button></th>
+					<th><button class="btn btn-info" ng-click="limpar()">Limpar</button></th>
+				</tr>
+				<tr ng-repeat="contato in contatos">
+					<th>{{contato.nome}}</th>
+					<th>{{contato.email}}</th>
+					<th>{{contato.telefone}}</th>
+					<th><button class="btn btn-danger" ng-click="remover(contato._id)">Excluir</button></th>
+					<th><button class="btn btn-warning" ng-click="selecionarEdicao(contato._id)">Editar</button> </th>
+				</tr>
+			</tbody>
+		</table>
+	</div>	
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js">
+</script>
+<script src="controllers/controller.js"></script>
+
+</body>
+</html>
